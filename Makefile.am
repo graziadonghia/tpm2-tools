@@ -190,6 +190,7 @@ tpm2_tools = \
     tools/tpm2_startauthsession.c \
     tools/tpm2_startup.c \
     tools/tpm2_stirrandom.c \
+    tools/tpm2_testliboqs.c \
     tools/tpm2_testparms.c \
     tools/tpm2_unseal.c \
     tools/tpm2_verifysignature.c \

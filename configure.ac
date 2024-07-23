@@ -67,6 +67,20 @@ PKG_CHECK_MODULES(
     ])
 ])
 
+# check liboqs and set necessary flags
+PKG_CHECK_MODULES([OQS], [liboqs], [have_liboqs=yes], [have_liboqs=no])
+AM_CONDITIONAL([HAVE_LIBOQS], [test "x$have_liboqs" = "xyes"])
+
+# Include liboqs headers
+AC_SUBST([OQS_CFLAGS], [$OQS_CFLAGS])
+# Link with liboqs
+AC_SUBST([OQS_LIBS], [$OQS_LIBS])
+
+# Print out for debugging
+AC_MSG_NOTICE([CFLAGS: $CFLAGS])
+AC_MSG_NOTICE([LDFLAGS: $LDFLAGS])
+
+
 AM_CONDITIONAL([HAVE_ESYS_4_0], [test "x${have_esys_4_0}" = "xyes"])
 
 PKG_CHECK_MODULES([TSS2_TCTILDR], [tss2-tctildr])
